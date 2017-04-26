@@ -1,0 +1,13 @@
+<section class="content">
+  <a [routerLink]="['add-serie']" class="btn btn-primary">Adicionar Nova Serie</a>
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>Nome do Seriado</th>
+      <th>Ações</th>
+    </tr>
+    <tr *ngFor="let serie of series">
+      <td>{{serie.title}}</td>
+    </tr>
+  </table>
+</section>
