@@ -1,3 +1,36 @@
-<p>
-  add-serie works!
-</p>
+<div class="content">
+    <h2>Adicionar nova serie </h2>
+    <form (submit)="onAddSubmit()">
+      <div class="form-group">
+        <label for="">Titulo</label>
+        <input type="text" class="form-control" [(ngModel)]="title" name="title" placeholder="Um Titulo" >
+      </div>
+      <div class="form-group">
+        <label for="">Category</label>
+        <input type="text" class="form-control" [(ngModel)]="category" name="category" placeholder="Uma Categoria" >
+      </div>
+      <div class="form-group">
+        <label for="">Capa</label>
+        <input type="text" class="form-control" [(ngModel)]="cover" name="cover" placeholder="title" >
+      </div>
+
+      <blockquote class="info">
+          nome do episodio, descricao, status(false ou true), <- virgula da contnuação dos episodios <br>
+          cc,dd,false<br>
+          * --> declaração de temporada<br>
+          aa,bb,true<br>
+      </blockquote>  
+
+      <div class="form-group">
+        <label for="">Temporadas e Episodios</label>
+        <textarea class="form-control" [(ngModel)]="seasons" name="seasons" placeholder="title" ></textarea>
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+</div>  
