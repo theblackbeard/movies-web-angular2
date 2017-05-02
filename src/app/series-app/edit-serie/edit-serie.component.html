@@ -1,6 +1,6 @@
 <div class="content">
-    <h2>Adicionar nova serie </h2>
-    <form (submit)="onAddSubmit()">
+    <h2>Editar serie </h2>
+    <form (submit)="onEditSubmit()">
       <div class="form-group">
         <label for="">Titulo</label>
         <input type="text" class="form-control" [(ngModel)]="title" name="title" placeholder="Um Titulo" >
@@ -19,11 +19,6 @@
           <br>exemplo:<br>
           cc|dd|0<br>
           -- --> declaração de temporada<br>
-          aa|bb|0|<br>
-          aa|bb|1<br>
-          --<br>
-          aa|bb|0|<br>
-          bb|cc|1<br>
       </blockquote>  
 
       <div class="form-group">

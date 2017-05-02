@@ -11,12 +11,14 @@ import { SeriesComponent } from './series/series.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SeriesService } from './services/series.service';
 import { AddSerieComponent } from './add-serie/add-serie.component';
+import { EditSerieComponent } from './series-app/edit-serie/edit-serie.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'series', component: SeriesComponent},
-  {path: 'series/add-serie', component: AddSerieComponent}
+  {path: 'series/add-serie', component: AddSerieComponent},
+  {path: 'series/edit-serie/:id', component: EditSerieComponent}
 ];
 
 const config = {
@@ -41,7 +43,8 @@ const firebaseAuthConfig = {
     HomeComponent,
     SeriesComponent,
     NavbarComponent,
-    AddSerieComponent
+    AddSerieComponent,
+    EditSerieComponent
   ],
   imports: [
     BrowserModule,

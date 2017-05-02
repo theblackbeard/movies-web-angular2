@@ -8,6 +8,7 @@
     </tr>
     <tr *ngFor="let serie of series">
       <td>{{serie.title}}</td>
+      <td><a [routerLink]="['edit-serie/' + serie.$key]" class="btn btn-default">Editar</a></td>
     </tr>
   </table>
 </section>

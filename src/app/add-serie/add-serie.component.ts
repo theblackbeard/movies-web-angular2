@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SeriesService } from '../services/series.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-serie',
@@ -12,7 +14,10 @@ export class AddSerieComponent implements OnInit {
   cover: any;
   seasons: any;
 
-  constructor() { }
+  constructor(
+    private ss: SeriesService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -23,32 +28,33 @@ export class AddSerieComponent implements OnInit {
       title: this.title,
       category: this.category,
       cover: this.cover,
-      seasons: this.mtToJS(this.seasons)
+      seasons: this.MTScripterToJS(this.seasons)
     };
 
-    console.log(serie)
+    console.log(serie);
+    this.ss.addSerie(serie);
+    this.router.navigate(['series']);
+
   }
 
-  private mtToJS(seasons){
+  private MTScripterToJS(seasons){
       let setence = [];
-      seasons = seasons.replace(/\s/g, " ");
-      let lista = seasons.split('*');
+      seasons = seasons.replace(/\s/g, "");
+      let lista = seasons.split('--');
       while(lista.length){
         let set = lista.splice(0, 1);
-        setence.push({espisodes: this.getEpisodes(set)})
+        setence.push({episodes: this.getEpisodes(set)})
       }
-    
      return setence;
-
   }
 
 
   private getEpisodes(seasons){
       let setence = [];
-      let list = seasons[0].split(',');
+      let list = seasons[0].split('|');
       while(list.length){
         let set = list.splice(0, 3);
-        setence.push({'name': set[0], 'desc': set[1], 'status': set[2]})
+        setence.push({'name':set[0], 'description':set[1], 'status':Number(set[2])})
       }
       return setence;
   }
